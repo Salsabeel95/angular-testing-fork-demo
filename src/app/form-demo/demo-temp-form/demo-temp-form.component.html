@@ -1,0 +1,28 @@
+<div class="container">
+    <form name="forgotForm" #forgotForm="ngForm" action="">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Template Driven Form Demo - Password Reset</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span id="success-msg" *ngIf="message!==''" style="color:green; font-weight: bold">{{message}}</span>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="username">Enter name:</label>
+                        <input  required [(ngModel)]="username" #name="ngModel" type="text" class="form-control" id="username" name="username" />
+                        <br />
+                        <span class="alert alert-danger" id="" [hidden]="name.valid || name.pristine && !name.errors?.['required']">name is required</span>
+                    </div>
+            </div>
+            <div class="col-md-12 mt-4">
+                <button class="btn btn-primary" (click)="submitForm()" [disabled] = "forgotForm.form.invalid" id="submitBtn" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
